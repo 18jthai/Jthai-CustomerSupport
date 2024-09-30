@@ -51,6 +51,10 @@ public class Ticket {
         this.attachments = attachments;
     }
 
+    public boolean hasImage() {
+        return attachments.getName().length() > 0 && attachments.getContents().length > 0;
+    }
+
     @Override
     public String toString() {
         return "Ticket{" +
