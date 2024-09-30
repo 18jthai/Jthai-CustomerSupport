@@ -4,6 +4,11 @@ public class Attachment {
     private String name;
     private byte[] contents;
 
+    public Attachment(String name, byte[] contents) {
+        this.name = name;
+        this.contents = contents;
+    }
+
     public String getName() {
         return name;
     }
