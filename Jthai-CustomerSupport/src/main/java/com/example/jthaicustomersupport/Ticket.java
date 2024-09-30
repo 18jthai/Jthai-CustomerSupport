@@ -6,9 +6,9 @@ public class Ticket {
     private String name;
     private String subject;
     private String bodyOfTicket;
-    private ArrayList attachments;
+    private Attachment attachments;
 
-    public Ticket(String name, String subject, String bodyOfTicket, ArrayList attachments) {
+    public Ticket(String name, String subject, String bodyOfTicket, Attachment attachments) {
         this.name = name;
         this.subject = subject;
         this.bodyOfTicket = bodyOfTicket;
@@ -16,6 +16,7 @@ public class Ticket {
     }
 
     public Ticket() {
+        super();
     }
 
     public String getName() {
@@ -30,7 +31,7 @@ public class Ticket {
         return bodyOfTicket;
     }
 
-    public ArrayList getAttachments() {
+    public Attachment getAttachments() {
         return attachments;
     }
 
@@ -46,7 +47,17 @@ public class Ticket {
         this.bodyOfTicket = bodyOfTicket;
     }
 
-    public void setAttachments(ArrayList attachments) {
+    public void setAttachments(Attachment attachments) {
         this.attachments = attachments;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "name='" + name + '\'' +
+                ", subject='" + subject + '\'' +
+                ", bodyOfTicket='" + bodyOfTicket + '\'' +
+                ", attachments=" + attachments +
+                '}';
     }
 }
