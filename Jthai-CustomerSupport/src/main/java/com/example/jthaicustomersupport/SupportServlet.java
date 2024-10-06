@@ -145,26 +145,7 @@ public class SupportServlet extends HttpServlet {
     }
 
     private void showTicketForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-
-        out.println("<html><body><h2>Create a Ticket</h2>");
-        out.println("<form method=\"POST\" action=\"ticket\" enctype=\"multipart/form-data\">");
-        out.println("<input type=\"hidden\" name=\"action\" value=\"create\">");
-
-        out.println("Name:<br>");
-        out.println("<input type=\"text\" name=\"name\"><br><br>");
-
-        out.println("Subject:<br>");
-        out.println("<input type=\"text\" name=\"subject\"><br><br>");
-
-
-        out.println("Body:<br>");
-        out.println("<textarea name=\"body\" rows=\"25\" cols=\"100\"></textarea><br><br>");
-
-        out.println("<b>Attachment</b><br>");
-        out.println("<input type=\"file\" name=\"file1\"><br><br>");
-        out.println("<input type=\"submit\" value=\"Submit\">");
-        out.println("</form></body></html>");
+        request.getRequestDispatcher("WEB-INF/jsp/view/ticketForm.jsp").forward(request, response);
 
     }
 
