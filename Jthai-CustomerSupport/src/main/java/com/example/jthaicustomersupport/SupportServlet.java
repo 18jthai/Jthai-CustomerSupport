@@ -78,6 +78,12 @@ public class SupportServlet extends HttpServlet {
     }
 
     private void listTickets(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("ticketDatabase", ticketDB);
+
+        request.getRequestDispatcher("WEB-INF/jsp/view/listTickets.jsp").forward(request, response);
+
+        /*
+
         PrintWriter out = response.getWriter();
 
         // heading and link to create ticket
@@ -96,6 +102,8 @@ public class SupportServlet extends HttpServlet {
             }
         }
         out.println("</body></html>");
+
+        */
 
     }
 
@@ -124,10 +132,14 @@ public class SupportServlet extends HttpServlet {
     }
 
     private void viewTicket(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String idString = request.getParameter("ticketId");
+            String idString = request.getParameter("ticketId");
 
 
             Ticket ticket = getTicket(idString, response);
+            request.setAttribute("ticket", ticket);
+            request.getRequestDispatcher("WEB-INF/jsp/view/viewTicket.jsp").forward(request, response);
+
+            /*
 
             PrintWriter out = response.getWriter();
             out.println("<html><body><h2>Ticket Post</h2>");
@@ -141,6 +153,8 @@ public class SupportServlet extends HttpServlet {
             }
             out.println("<a href=\"ticket\">Return to the ticket list</a>");
             out.println("</body></html>");
+
+            */
 
     }
 

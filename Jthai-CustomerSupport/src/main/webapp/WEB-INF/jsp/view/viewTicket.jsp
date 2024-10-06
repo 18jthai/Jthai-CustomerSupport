@@ -1,16 +1,30 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 18jth
-  Date: 10/6/2024
-  Time: 4:54 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
+<%
+    String ticketId = (String)request.getAttribute("ticketId");
+    Ticket ticket = (Ticket)request.getAttribute("ticket");
+%>
+
+
+
+
+
 <html>
 <head>
-    <title>Title</title>
+    <title>Ticket #<%=ticketId%></title>
 </head>
 <body>
+    <h2>Ticket Post</h2>
+    <h3>Name: <%=ticket.getName()%> </h3>
+    <h3>Subject: <%=ticket.getSubject()%> </h3>
+    <p>Summary: <%=ticket.getBodyOfTicket()%></p>
+    <% if (ticket.hasImage()) {%>
+        <a href="ticket?action=download&ticketId<%=ticketId%>&attachment=<%=ticket.getAttachments().getName()%>">
+            <%=ticket.getAttachments().getName()%></a>
+
+    <%}%>
+    <br><a href="ticket">Return to the ticket list</a>
+
 
 </body>
 </html>

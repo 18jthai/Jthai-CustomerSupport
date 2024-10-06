@@ -20,8 +20,8 @@
         else {
             for (int id : db.keySet()) {
                 Ticket ticket = db.get(id);%>
-                <%="Ticket # " + id%>
-                <a href="ticket?action=view&ticketId="<%=id%>><%=ticket.getName()%></>a><br>
+                <%="Ticket # " + id + ": "%>
+                <a href="ticket?action=view&ticketId=<%=id%>"><%=ticket.getName()%></a><br>
             <%}
         }%>
 
