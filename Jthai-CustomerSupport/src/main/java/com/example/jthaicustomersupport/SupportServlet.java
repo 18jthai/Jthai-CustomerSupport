@@ -135,7 +135,8 @@ public class SupportServlet extends HttpServlet {
             out.println("<h3>Subject: " + ticket.getSubject() + "</h3>");
             out.println("<p>Summary: " + ticket.getBodyOfTicket() + "</p>");
             if (ticket.hasImage()) {
-                out.println("<a href=\"ticket?action=download&ticketId" + idString + "&attachment=" + ticket.getAttachments().getName() +
+                out.println("<a href=\"ticket?action=download&ticketId" + idString + "&attachment=" +
+                        ticket.getAttachments().getName() +
                         "\">" + ticket.getAttachments().getName() + "</a><br><br>");
             }
             out.println("<a href=\"ticket\">Return to the ticket list</a>");
