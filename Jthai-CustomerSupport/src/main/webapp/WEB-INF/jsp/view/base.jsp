@@ -1,2 +1,2 @@
-<%@ page import="com.example.jthaicustomersupport.Ticket, com.example.jthaicustomersupport.Attachment" %>
 <%@ page session="false" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
