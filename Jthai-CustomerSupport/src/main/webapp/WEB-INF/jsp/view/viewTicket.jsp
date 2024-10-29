@@ -4,9 +4,7 @@
     <title>Ticket #<c:out value="${ticketId}"/></title>
 </head>
 <body>
-    <a href="<c:url value='/login'>
-        <c:param name='logout'/>
-        </c:url>">Logout</a>
+    <a href="<c:url value='/logout'>">Logout</a>
     <h2>Ticket Post</h2>
     <h3>Name: <c:out value="${ticket.name}"/></h3>
     <h3>Subject: <c:out value="${ticket.subject}"/></h3>

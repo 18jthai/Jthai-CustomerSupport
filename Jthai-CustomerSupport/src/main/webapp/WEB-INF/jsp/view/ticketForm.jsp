@@ -3,9 +3,7 @@
     <title>Create a new Ticket</title>
 </head>
 <body>
-    <a href="<c:url value='/login'>
-        <c:param name='logout'/>
-        </c:url>">Logout</a>
+    <a href="<c:url value='/logout'>">Logout</a>
     <h2>Create a Ticket</h2>
 
     <form:form method="POST" action="create" modelAttribute="ticket" enctype="multipart/form-data">

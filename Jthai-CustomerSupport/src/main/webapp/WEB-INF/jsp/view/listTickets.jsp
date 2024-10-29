@@ -4,9 +4,7 @@
     <title>Ticket Posts</title>
 </head>
 <body>
-    <a href="<c:url value='/login'>
-        <c:param name='logout'/>
-        </c:url>">Logout</a>
+    <a href="<c:url value='/logout'>">Logout</a>
     <h2>Ticket Posts</h2>
     <a href="<c:url value='/ticket/create'/>">Create Ticket</a><br><br>
 

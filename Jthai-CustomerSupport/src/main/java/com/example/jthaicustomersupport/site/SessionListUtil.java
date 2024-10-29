@@ -1,4 +1,4 @@
-package com.example.jthaicustomersupport;
+package com.example.jthaicustomersupport.site;
 
 import jakarta.servlet.http.HttpSession;
 
