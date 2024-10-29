@@ -13,10 +13,10 @@
         <form:input path="name"/><br><br>
         <form:label path="subject">Subject:</form:label><br>
         <form:input path="subject"/><br><br>
-        <form:label path="body">Body:</form:label><br>
+        <form:label path="bodyOfTicket">Body:</form:label><br>
         <form:textarea path="bodyOfTicket" rows="25" cols="100"/><br><br>
         <b>Attachment</b><br>
-        <input type="file" path="attachments"><br><br>
+        <form:input path="attachments" type="file"/>
         <input type="submit" value="Submit">
     </form:form>
 </body>

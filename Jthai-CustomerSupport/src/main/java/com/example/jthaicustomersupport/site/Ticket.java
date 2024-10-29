@@ -51,7 +51,7 @@ public class Ticket {
     }
 
     public boolean hasImage() {
-        return attachments.getName().length() > 0 && attachments.getContents().length > 0;
+        return attachments != null && attachments.getName().length() > 0 && attachments.getContents().length > 0;
     }
 
     @Override

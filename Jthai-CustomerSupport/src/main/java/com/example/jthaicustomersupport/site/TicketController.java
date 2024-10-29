@@ -39,8 +39,8 @@ public class TicketController {
 
         Attachment file = form.getAttachments();
         Attachment attachment = new Attachment();
-        attachment.setName(file.getOriginalFilename());
-        attachment.setContents(file.getBytes());
+        attachment.setName(file.getName());
+        attachment.setContents(file.getContents());
         if ((attachment.getName() != null && attachment.getName().length() > 0 ||
                 (attachment.getContents() != null && attachment.getContents().length > 0))) {
             ticket.setAttachments(attachment);
@@ -57,17 +57,32 @@ public class TicketController {
     }
 
     @GetMapping("view/{ticketId}")
-    public ModelAndView viewTicket(Model model, @PathVariable("ticketIc")int ticketId) {
+    public ModelAndView viewTicket(Model model, @PathVariable("ticketId")int ticketId) {
         Ticket ticket = ticketDB.get(ticketId);
 
         if(ticket == null) {
-            return new ModelAndView(new RedirectView("listTickets", true, false));
+            return new ModelAndView(new RedirectView("ticket/list", true, false));
         }
 
         model.addAttribute("ticketId", ticketId);
         model.addAttribute("ticket", ticket);
 
         return new ModelAndView("viewTicket");
+    }
+
+    @GetMapping("/{ticketId}/attachments/{attachments:.+}")
+    public View downloadImage(@PathVariable("ticketId")int ticketId, @PathVariable("attachments")String name) {
+        Ticket ticket = ticketDB.get(ticketId);
+        if (ticket == null) {
+            return new RedirectView("listTickets", true, false);
+        }
+
+        Attachment attachment = ticket.getAttachments();
+        if (attachment == null) {
+            return new RedirectView("listTickets", true, false);
+        }
+
+        return new DownloadView(attachment.getName(), attachment.getContents());
     }
 
     public static class TicketForm {

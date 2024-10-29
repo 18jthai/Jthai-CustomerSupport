@@ -12,13 +12,10 @@
     <h3>Subject: <c:out value="${ticket.subject}"/></h3>
     <p>Summary: <c:out value="${ticket.bodyOfTicket}"/></p>
     <c:if test="${ticket.hasImage()}">
-        <a href="<c:url value='/ticket' >
-            <c:param name='action' value='download' />
-            <c:param name='ticketId' value='${ticketId}' />
-            <c:param name='attachment' value='${ticket.attachment.name}' />
-        </c:url>"><c:out value="${ticket.attachment.name}"/></a>
+        <a href="<c:url value='/ticket/${ticketId}/attachments/${ticket.attachments.name}' />">
+            <c:out value="${ticket.attachments.name}"/></a>
     </c:if>
-    <br><a href="ticket">Return to the ticket list</a>
+    <br><a href="<c:url value='/ticket/list'/>">Return to the ticket list</a>
 
 
 </body>
