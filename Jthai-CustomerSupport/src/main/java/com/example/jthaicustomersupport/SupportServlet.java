@@ -143,10 +143,11 @@ public class SupportServlet extends HttpServlet {
 
     private void viewTicket(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
             String idString = request.getParameter("ticketId");
-
-
             Ticket ticket = getTicket(idString, response);
+
             request.setAttribute("ticket", ticket);
+            request.setAttribute("ticketId", idString);
+
             request.getRequestDispatcher("WEB-INF/jsp/view/viewTicket.jsp").forward(request, response);
 
             /*
